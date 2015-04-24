@@ -1,0 +1,5 @@
+#! /usr/bin/env ruby
+
+require_relative 'layer'
+
+Layer::Layer.new.update_background
