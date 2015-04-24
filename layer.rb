@@ -24,12 +24,19 @@ module Layer
     end
 
     def replace_background
-      `gconftool-2 --unset #{background_key}`
-      `gconftool-2 --set #{background_key} #{@image} --type string`
+      unless @config['allow_scroll']
+        `gconftool-2 --set #{schema}scroll_background false --type bool`
+      end
+      `gconftool-2 --unset #{schema}background_image`
+      `gconftool-2 --set #{schema}background_image #{@image} --type string`
     end
 
     def background_key
-      @background_key ||= "/apps/gnome-terminal/profiles/#{@profile}/background_image"
+      @background_key ||= "background_image"
+    end
+
+    def schema
+      @schema ||= "/apps/gnome-terminal/profiles/#{@profile}/"
     end
 
     def width
