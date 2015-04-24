@@ -6,10 +6,10 @@ module Layer
     CONFIG_FILE = 'layer_config.yml'
 
     def initialize
-      config = YAML.load_file CONFIG_FILE
-      @url = config['url']
-      @image = config['image']
-      @profile = config['profile']
+      @config = YAML.load_file CONFIG_FILE
+      @url = @config['url']
+      @image = @config['image']
+      @profile = @config['profile']
     end
 
     def update_background
@@ -20,8 +20,7 @@ module Layer
     private
 
     def rasterize
-      puts "phantomjs lib/rasterize.js #{@url} #{@image}"
-      `phantomjs lib/rasterize.js #{@url} #{@image}`
+      `phantomjs lib/rasterize.js #{@url} #{@image} #{width}*#{height}`
     end
 
     def replace_background
@@ -33,5 +32,19 @@ module Layer
       @background_key ||= "/apps/gnome-terminal/profiles/#{@profile}/background_image"
     end
 
+    def width
+      columns = terminal_info 'columns'
+      columns.to_i * @config['pixels_per_column']
+    end
+
+    def height
+      rows = terminal_info 'rows'
+      rows.to_i * @config['pixels_per_row']
+    end
+
+    def terminal_info(element)
+      @info ||= `stty -a`
+      @info.match(/#{element}\s(\d+);/).captures.first
+    end
   end
 end
