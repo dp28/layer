@@ -1,4 +1,5 @@
 require 'yaml'
+require_relative 'terminal'
 
 module Layer
   class Layer
@@ -9,53 +10,28 @@ module Layer
       @config = YAML.load_file CONFIG_FILE
       @url = @config['url']
       @image = @config['image']
-      @profile = @config['profile']
+      setup_terminal
     end
 
     def update_background
       rasterize
-      replace_background
+      @terminal.replace_background @image
     end
 
     private
 
+    def setup_terminal
+      @terminal = ::Layer::Terminal.new @config
+      @terminal.forbid_scrolling unless @config['allow_scroll']
+    end
+
     def rasterize
-      `phantomjs #{rasterize_path} #{@url} #{@image} #{width}*#{height}`
+      size = "#{@terminal.width}*#{@terminal.height}"
+      `phantomjs #{rasterize_path} #{@url} #{@image} #{size}`
     end
 
     def rasterize_path
       File.expand_path '~/.layer/lib/rasterize.js'
-    end
-
-    def replace_background
-      unless @config['allow_scroll']
-        `gconftool-2 --set #{schema}scroll_background false --type bool`
-      end
-      `gconftool-2 --unset #{schema}background_image`
-      `gconftool-2 --set #{schema}background_image #{@image} --type string`
-    end
-
-    def background_key
-      @background_key ||= "background_image"
-    end
-
-    def schema
-      @schema ||= "/apps/gnome-terminal/profiles/#{@profile}/"
-    end
-
-    def width
-      columns = terminal_info 'columns'
-      columns.to_i * @config['pixels_per_column']
-    end
-
-    def height
-      rows = terminal_info 'rows'
-      rows.to_i * @config['pixels_per_row']
-    end
-
-    def terminal_info(element)
-      @info ||= `stty -a`
-      @info.match(/#{element}\s(\d+);/).captures.first
     end
   end
 end
