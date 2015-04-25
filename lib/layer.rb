@@ -14,8 +14,10 @@ module Layer
     end
 
     def update_background
-      rasterize
-      @terminal.replace_background @image
+      [temp_image, @image].each do |image|
+        rasterize image
+        @terminal.replace_background image
+      end
     end
 
     private
@@ -25,9 +27,13 @@ module Layer
       @terminal.forbid_scrolling unless @config['allow_scroll']
     end
 
-    def rasterize
+    def temp_image
+      File.expand_path '~/.layer/temp.png'
+    end
+
+    def rasterize(output)
       size = "#{@terminal.width}*#{@terminal.height}"
-      `phantomjs #{rasterize_path} #{@url} #{@image} #{size}`
+      `phantomjs #{rasterize_path} #{@url} #{output} #{size}`
     end
 
     def rasterize_path

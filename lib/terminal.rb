@@ -12,7 +12,6 @@ module Layer
     end
 
     def replace_background(image)
-      `gconftool-2 --unset #{@schema}background_image`
       `gconftool-2 --set #{@schema}background_image #{image} --type string`
     end
 
