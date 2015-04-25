@@ -14,10 +14,10 @@ module Layer
     end
 
     def update_background
-      [temp_image, @image].each do |image|
-        rasterize image
-        @terminal.replace_background image
-      end
+      rasterize temp_image
+      @terminal.replace_background temp_image
+      `mv -f #{temp_image} #{@image}`
+      @terminal.replace_background @image
     end
 
     private
