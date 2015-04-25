@@ -3,7 +3,7 @@ require 'yaml'
 module Layer
   class Layer
 
-    CONFIG_FILE = 'layer_config.yml'
+    CONFIG_FILE = File.expand_path '~/.layer/config/layer_config.yml'
 
     def initialize
       @config = YAML.load_file CONFIG_FILE
@@ -20,7 +20,11 @@ module Layer
     private
 
     def rasterize
-      `phantomjs lib/rasterize.js #{@url} #{@image} #{width}*#{height}`
+      `phantomjs #{rasterize_path} #{@url} #{@image} #{width}*#{height}`
+    end
+
+    def rasterize_path
+      File.expand_path '~/.layer/lib/rasterize.js'
     end
 
     def replace_background
