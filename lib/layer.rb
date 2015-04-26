@@ -4,7 +4,10 @@ require_relative 'terminal'
 module Layer
   class Layer
 
-    CONFIG_FILE = File.expand_path '~/.layer/config/layer_config.yml'
+    ROOT = File.expand_path '~/.layer'
+    CONFIG_FILE = "#{ROOT}/config/layer_config.yml"
+    RASTERIZE_PATH = "#{ROOT}/lib/rasterize.js"
+    TEMP_IMAGE = "#{ROOT}/temp.png"
 
     def initialize
       @config = YAML.load_file CONFIG_FILE
@@ -14,9 +17,9 @@ module Layer
     end
 
     def update_background
-      rasterize temp_image
-      @terminal.replace_background temp_image
-      `mv -f #{temp_image} #{@image}`
+      rasterize TEMP_IMAGE
+      @terminal.replace_background TEMP_IMAGE
+      `mv -f #{TEMP_IMAGE} #{@image}`
       @terminal.replace_background @image
     end
 
@@ -27,17 +30,9 @@ module Layer
       @terminal.forbid_scrolling unless @config['allow_scroll']
     end
 
-    def temp_image
-      File.expand_path '~/.layer/temp.png'
-    end
-
     def rasterize(output)
       size = "#{@terminal.width}px*#{@terminal.height}px"
-      `phantomjs #{rasterize_path} #{@url} #{output} #{size}`
-    end
-
-    def rasterize_path
-      File.expand_path '~/.layer/lib/rasterize.js'
+      `phantomjs #{RASTERIZE_PATH} #{@url} #{output} #{size}`
     end
   end
 end
