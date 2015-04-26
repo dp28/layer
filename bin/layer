@@ -2,4 +2,8 @@
 
 require '/usr/local/lib/layer/layer'
 
-Layer::Layer.new(ARGV).update_background
+begin
+  Layer::Layer.new(ARGV).update_background
+rescue OptionParser::InvalidOption => err
+  abort "layer: #{err.message}\nFor full usage information use layer -h"
+end
