@@ -2,4 +2,4 @@
 
 require '/usr/local/lib/layer/layer'
 
-Layer::Layer.new.update_background
+Layer::Layer.new(ARGV).update_background

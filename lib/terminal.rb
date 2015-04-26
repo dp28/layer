@@ -2,9 +2,9 @@ module Layer
   class Terminal
 
     def initialize(config)
-      @schema = "/apps/gnome-terminal/profiles/#{config['profile']}/"
-      @pixels_per_row = config['pixels_per_row'].to_i
-      @pixels_per_column = config['pixels_per_column'].to_i
+      @schema = "/apps/gnome-terminal/profiles/#{config.get(:profile)}/"
+      @pixels_per_row = config.get(:pixels_per_row).to_i
+      @pixels_per_column = config.get(:pixels_per_column).to_i
     end
 
     def forbid_scrolling

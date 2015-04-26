@@ -1,5 +1,5 @@
-require 'yaml'
 require_relative 'terminal'
+require_relative 'config'
 
 module Layer
   class Layer
@@ -9,10 +9,10 @@ module Layer
     RASTERIZE_PATH = "#{ROOT}/lib/rasterize.js"
     TEMP_IMAGE = "#{ROOT}/temp.png"
 
-    def initialize
-      @config = YAML.load_file CONFIG_FILE
-      @url = @config['url']
-      @image = @config['image']
+    def initialize(argv)
+      @config = Config.new CONFIG_FILE, argv
+      @url = @config.get :url
+      @image = @config.get :image
       setup_terminal
     end
 
@@ -27,7 +27,7 @@ module Layer
 
     def setup_terminal
       @terminal = ::Layer::Terminal.new @config
-      @terminal.forbid_scrolling unless @config['allow_scroll']
+      @terminal.forbid_scrolling unless @config.get :allow_scroll
     end
 
     def rasterize(output)
