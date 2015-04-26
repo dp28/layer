@@ -32,7 +32,7 @@ module Layer
     end
 
     def rasterize(output)
-      size = "#{@terminal.width}*#{@terminal.height}"
+      size = "#{@terminal.width}px*#{@terminal.height}px"
       `phantomjs #{rasterize_path} #{@url} #{output} #{size}`
     end
 
