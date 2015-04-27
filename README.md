@@ -16,6 +16,9 @@ Usage
 -----
 Running `layer` renders an HTML page at the specified URL to a specified PNG file, then sets this PNG as the background for the terminal. The PNG is rendered to be the size of the terminal when `layer` is run.
 
+Using the -w or -a options, in combination with -s, allows you to selectively replace
+or append to parts of the HTML before rendering it. The HTML is saved with these changes.
+
 `layer` with no options uses the defaults specified in ~/.layer/config/layer_config.yml.
 
 Options:
