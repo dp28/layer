@@ -41,6 +41,19 @@ Options:
                                  (may break positioning of the
                                  background). [default: false]
 
+-f, --file <path>                The file to write HTML changes to
+                                 [default:
+                                 /home/jimmy/.layer/config/background.html]
+
+-s, --selector <css>             The selector to write/append changes to
+                                 [default: body]
+
+-w, --write <html>               Content to write to the HTML before
+                                 rendering [default: ]
+
+-a, --append <html>              Content to append to the HTML before
+                                 rendering [default: ]
+
 -h, --help                       Print help message
 
 Dependencies

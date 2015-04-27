@@ -3,7 +3,7 @@
 require '/usr/local/lib/layer/layer'
 
 begin
-  Layer::Layer.new(ARGV).update_background
+  Layer::Layer.new(ARGV).run
 rescue OptionParser::InvalidOption => err
   abort "layer: #{err.message}\nFor full usage information use layer -h"
 end
