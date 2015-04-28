@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <style type="text/css">
+      body {
+        background: black;
+        color: white;
+        opacity: 0.5;
+      }
+
+      .side {
+        display: inline-block;
+        width: 50%;
+      }
+
+      .left {
+        float: left;
+      }
+
+      .right {
+        float: right;
+      }
+
+      #shortcuts {
+        font-weight: bold;
+      }
+
+      #shortcuts tr td:nth-of-type(1) {
+        color: red;
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="side left">
+      <h1>To do</h1>
+      <ol id="notes">
+        <li>Try out layer</li>
+        <li>Try out note command (~/.layer/examples/note.sh)</li>
+        <li>Try out shortcut command (~/.layer/examples/shortcut.sh)</li>
+        <li>Customise</li>
+      </ol>
+    </div>
+    <div class="side right">
+      <h1>Layer arguments</h1>
+      <table id="shortcuts">
+        <tr><td>-a</td><td>Append to a selector (specified by -s)</td></tr>
+      </table>
+    </div>
+  </body>
+</html>

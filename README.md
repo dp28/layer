@@ -59,6 +59,10 @@ Options:
 
 -h, --help                       Print help message
 
+Example uses
+------------
+See the examples/ directory in ~/.layer after installation for an example background and several scripts that modify it.
+
 Dependencies
 ------------
 

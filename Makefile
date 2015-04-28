@@ -10,6 +10,7 @@ install:
 	rsync -a config ~/.layer/
 	sed -i "s/<user>/$$(whoami)/g" ~/.layer/config/layer_config.yml
 	rsync -a lib/lib ~/.layer/
+	rsync -a examples ~/.layer/
 	echo "Finished installing layer."
 
 uninstall:
