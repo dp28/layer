@@ -8,7 +8,7 @@ Installation
 
 ```bash
 git clone https://github.com/dp28/layer.git
-cd gswitch
+cd layer
 sudo make
 ```
 
