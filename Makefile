@@ -8,6 +8,7 @@ install:
 	sudo rsync -a lib/ /usr/local/lib/layer --exclude lib/lib
 	mkdir ~/.layer
 	rsync -a config ~/.layer/
+	sed -i "s/<user>/$$(whoami)/g" ~/.layer/config/layer_config.yml
 	rsync -a lib/lib ~/.layer/
 	echo "Finished installing layer."
 

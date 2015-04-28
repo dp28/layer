@@ -1,8 +1,8 @@
-url: 'file:///home/jimmy/.layer/config/background.html'
-image: /home/jimmy/.layer/background.png
+url: 'file:///home/<user>/.layer/config/background.html'
+image: /home/<user>/.layer/background.png
 profile: Default
 pixels_per_row: 18
 pixels_per_column: 9
 allow_scroll: false
-file: /home/jimmy/.layer/config/background.html
+file: /home/<user>/.layer/config/background.html
 selector: body
