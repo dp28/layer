@@ -1,23 +1,13 @@
-require 'optparse'
-require 'yaml'
-
 module Layer
   class Config
 
-    def initialize(defaults_path, argv)
-      @values = {}
-      @config = YAML.load_file defaults_path
-      @parser = OptionParser.new
-      setup_parser defaults_path
-      @parser.parse argv
-    end
-
-    def print_help
-      puts @parser
+    def initialize(defaults, options)
+      @config  = YAML.load_file defaults_path
+      @options = @config.merge options
     end
 
     def get(key)
-      @values[key.to_s]
+      @options[key.to_s]
     end
 
     private
