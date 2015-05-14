@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
 
-layer -s "#notes" -a "<li>$1</li>"
+layer append "<li>$1</li>" -s "#notes"
