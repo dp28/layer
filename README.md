@@ -9,27 +9,33 @@ Installation
 ```bash
 git clone https://github.com/dp28/layer.git
 cd layer
-sudo make
+make
 ```
 
 Usage
 -----
-Running `layer` renders an HTML page at the specified URL to a specified PNG file, then sets this PNG as the background for the terminal. The PNG is rendered to be the size of the terminal when `layer` is run.
+Running `layer` or `layer render` renders an HTML page at the specified URL to a specified PNG file, then sets this PNG as the background for the terminal. The PNG is rendered to be the size of the terminal when `layer` is run.
 
-Using the -w or -a options, in combination with -s, allows you to selectively replace
-or append to parts of the HTML before rendering it. The HTML is saved with these changes.
+Using `layer write` or `layer append`, in combination with -s, allows you to selectively replace or append to parts of the HTML before rendering it. The HTML is saved with these changes.
 
 `layer` with no options uses the defaults specified in ~/.layer/config/layer_config.yml.
 
-Options:
+Subcommands:
+
+* `render`            (default)
+* `write   <content>`
+* `append  <content>`
+* `help    [command]`
+
+All subcommand options:
 
 -u, --url <url>                  URL of HTML page to use as background.
                                  [default:
-                                 file:///home/jimmy/.layer/config/example.html]
+                                 file:///home/<user>/.layer/config/example.html]
 
 -i, --image <path>               Location to save new background image
                                  to. [default:
-                                 /home/jimmy/.layer/background.png]
+                                 /home/<user>/.layer/background.png]
 
 -p, --profile <profile_name>     Terminal profile to change background
                                  of. [default: Default]
@@ -44,20 +50,14 @@ Options:
                                  (may break positioning of the
                                  background). [default: false]
 
+`write`/`append` options:
+
+-s, --selector <css>             The selector to write/append changes to.
+                                 Required
+
 -f, --file <path>                The file to write HTML changes to
                                  [default:
-                                 /home/jimmy/.layer/config/background.html]
-
--s, --selector <css>             The selector to write/append changes to
-                                 [default: body]
-
--w, --write <html>               Content to write to the HTML before
-                                 rendering [default: ]
-
--a, --append <html>              Content to append to the HTML before
-                                 rendering [default: ]
-
--h, --help                       Print help message
+                                 /home/<user>/.layer/config/background.html]
 
 Example uses
 ------------
