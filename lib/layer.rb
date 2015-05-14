@@ -10,25 +10,25 @@ module Layer
     DEFAULTS = YAML.load_file "#{ROOT}/config/layer_config.yml"
     WRITE_HTML_PATH = "#{ROOT}/lib/write_html.js"
 
-    def self.add_options(*opts)
-      opts.each { |opt| add_option opt, opt[0] }
+    def self.add_class_options(*opts)
+      opts.each { |opt| add_class_option opt, opt[0] }
     end
 
-    def self.add_option(opt, short)
-      option opt, aliases: [short], default: DEFAULTS[opt.to_s]
+    def self.add_class_option(opt, short)
+      class_option opt, aliases: [short], default: DEFAULTS[opt.to_s]
     end
 
-    # def run
-    #   write_html @config.get(:write)
-    #   write_html @config.get(:append), true
-    #   update_background
-    # end
+    def self.html_options
+      option :selector, aliases: [:s], required: true
+      option :file, aliases: [:f], default: DEFAULTS['file']
+    end
 
     desc 'render', 'Replace terminal background with rendered HTML'
-    add_options :url, :image, :profile
-    add_option :pixels_per_column, :c
-    add_option :pixels_per_row, :r
-    option :allow_scroll, default: DEFAULTS[:allow_scroll], aliases: [:a], type: :boolean
+    add_class_options :url, :image, :profile
+    add_class_option :pixels_per_column, :c
+    add_class_option :pixels_per_row, :r
+    class_option :url, aliases: [:u], default: "file://#{DEFAULTS['file']}"
+    class_option :allow_scroll, aliases: [:a], default: DEFAULTS['allow_scroll'], type: :boolean
     long_desc <<-LONGDESC
       Replaces the terminal background for a given profile with a rendered
       PNG of a specific HTML page.
@@ -54,13 +54,26 @@ module Layer
     end
     default_task :render
 
+    desc 'write', 'Replace the inner contents of a selector in an HTML file
+                  then re-render the background.'
+    html_options
+    def write(content)
+      `#{write_html content, options[:file], options[:selector]}`
+      render
+    end
+
+    desc 'append', 'Append to the inner contents of a selector in an HTML file
+                    then re-render the background.'
+    html_options
+    def append(content)
+      `#{write_html content, options[:file], options[:selector]} -a`
+      render
+    end
+
     private
 
-    def write_html(content, append = false)
-      return if content.nil?
-      arguments = "#{@config.get :file} \"#{@config.get :selector}\" \"#{content}\""
-      arguments += ' -a' if append
-      `phantomjs #{WRITE_HTML_PATH} #{arguments}`
+    def write_html(content, file, selector)
+      "phantomjs #{WRITE_HTML_PATH} #{file} \"#{selector}\" \"#{content}\""
     end
   end
 end
