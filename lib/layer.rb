@@ -8,7 +8,7 @@ module Layer
 
     ROOT = File.expand_path '~/.layer'
     DEFAULTS = YAML.load_file "#{ROOT}/config/layer_config.yml"
-    WRITE_HTML_PATH = "#{ROOT}/lib/write_html.js"
+    CHANGE_HTML_PATH = "#{ROOT}/lib/write_html.js"
 
     def self.add_class_options(*opts)
       opts.each { |opt| add_class_option opt, opt[0] }
@@ -58,7 +58,7 @@ module Layer
                   then re-render the background.'
     html_options
     def write(content)
-      `#{write_html content, options[:file], options[:selector]}`
+      `#{change_html content, options[:file], options[:selector]} -w`
       render
     end
 
@@ -66,14 +66,21 @@ module Layer
                     then re-render the background.'
     html_options
     def append(content)
-      `#{write_html content, options[:file], options[:selector]} -a`
+      `#{change_html content, options[:file], options[:selector]} -a`
       render
+    end
+
+    desc 'read', 'Replace the selector in an HTML file then re-render the
+                  background.'
+    option :file, aliases: [:f], default: DEFAULTS['file']
+    def read(selector)
+      puts `#{change_html nil, options[:file], selector} -r`
     end
 
     private
 
-    def write_html(content, file, selector)
-      "phantomjs #{WRITE_HTML_PATH} #{file} \"#{selector}\" \"#{content}\""
+    def change_html(content, file, selector)
+      "phantomjs #{CHANGE_HTML_PATH} #{file} \"#{selector}\" \"#{content}\""
     end
   end
 end
