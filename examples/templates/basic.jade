@@ -1,0 +1,12 @@
+html
+  head
+  body
+    h1 Test
+
+    p A test template
+
+    #replaceable Content with id 'replaceable'
+
+    ul
+      - for (var i = 0; i < tests.length; i++)
+        li #{tests[i]}
