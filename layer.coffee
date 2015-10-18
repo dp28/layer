@@ -1,5 +1,12 @@
-jade = require 'jade'
+jade    = require 'jade'
+phantom = require 'phantom'
 
-template = jade.compileFile './templates/default.jade', pretty: true
+render = (fileName, html) ->
+  phantom.create (ph) ->
+    ph.createPage (page) ->
+      page.set 'content', html
+      page.render fileName
+      ph.exit()
 
-console.log template test: 'layer'
+template = jade.compileFile './templates/default.jade'
+render 'output/background.png', template test: 'layer'
