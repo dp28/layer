@@ -1,9 +1,30 @@
-spawn = require('child_process').spawn
+spawn     = require('child_process').spawn
+spawnSync = require 'spawn-sync'
+Promise   = require 'bluebird'
 
-module.exports = getSize: (callback) ->
-  spawn('resize').stdout.on 'data', (data) ->
-    data    = String data
-    lines   = data.split '\n'
-    columns = +lines[0].match(/^COLUMNS=([0-9]+);$/)[1]
-    rows    = +lines[1].match(/^LINES=([0-9]+);$/)[1]
-    callback? columns, rows
+module.exports = class Terminal
+
+  constructor: (config) ->
+    @schema          = "/apps/gnome-terminal/profiles/#{config.profile}/"
+    @pixelsPerRow    = config.pixelsPerRow
+    @pixelsPerColumn = config.pixelsPerColumn
+    @_forbidScrolling() unless config.allowScroll
+
+  replaceBackground: (fileName) ->
+    @_setProperty 'background_image', fileName, 'string'
+
+  getDimensions: -> new Promise (resolve) ->
+    spawn('resize').stdout.on 'data', (data) ->
+      data    = String data
+      lines   = data.split '\n'
+      columns = +lines[0].match(/^COLUMNS=([0-9]+);$/)[1]
+      rows    = +lines[1].match(/^LINES=([0-9]+);$/)[1]
+      resolve
+        width:  columns * @pixelsPerColumn
+        height: rows * @pixelsPerRow
+
+  _forbidScrolling: ->
+    @_setProperty 'scroll_background', 'false'
+
+  _setProperty: (name, value, type) ->
+    spawnSync 'gconftool-2', ['--set', "#{@schema}#{name}", value, '--type', type]

@@ -20,6 +20,8 @@
   "dependencies": {
     "phantom": "~0.8.0",
     "jade": "~1.11.0",
-    "coffee-script": "~1.10.0"
+    "coffee-script": "~1.10.0",
+    "bluebird": "~2.10.2",
+    "spawn-sync": "~1.0.13"
   }
 }
