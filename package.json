@@ -4,7 +4,10 @@
   "description": "A command-line tool to convert HTML pages to backgrounds for the gnome terminal.",
   "author": "Daniel Patterson",
   "license": "MIT",
-  "bin": "index.js",
+  "preferGlobal": true,
+  "bin": {
+    "layer": "bin/layer.coffee"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dp28/layer.git"
@@ -16,12 +19,12 @@
   "bugs": {
     "url": "https://github.com/dp28/layer/issues"
   },
-  "preferGlobal": true,
   "dependencies": {
     "phantom": "~0.8.0",
     "jade": "~1.11.0",
     "coffee-script": "~1.10.0",
     "bluebird": "~2.10.2",
-    "spawn-sync": "~1.0.13"
+    "spawn-sync": "~1.0.13",
+    "path": "~0.12.7"
   }
 }

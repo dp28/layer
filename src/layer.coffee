@@ -1,21 +1,19 @@
 jade     = require 'jade'
 fs       = require 'fs'
 Promise  = require 'bluebird'
+path     = require 'path'
 
 Renderer = require './renderer'
 Terminal = require './terminal'
-config   = require './config'
+config   = require '../config'
 
-TEMP_IMAGE = __dirname + '/output/temp.png'
+TEMP_IMAGE = path.join __dirname, '../', '/output/temp.png'
+TEMPLATE   = path.join __dirname, '../', '/templates/default.jade'
 
-module.exports = ->
-  layer = new Application()
-  layer.updateBackground()
-
-class Application
+module.exports = class Layer
 
   constructor : ->
-    @template = jade.compileFile './templates/default.jade'
+    @template = jade.compileFile TEMPLATE
     @terminal = new Terminal config
 
   updateBackground: ->
