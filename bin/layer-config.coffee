@@ -5,24 +5,29 @@ config = require '../src/config'
 
 { hyphenizeKeys, hyphenize } = require '../src/utils'
 
-options =
-  'allow-scroll': 'Allow the terminal image to scroll when the foreground scrolls'
-  'column-width': 'The width of a terminal column in pixels'
-  'image-file':   'Where to save the background image'
-  'profile':      'The gnome terminal profile to set the background for'
-  'row-height':   'The height of a terminal rowin pixels'
-
-for option, description of options
-  yargs.option option, describe: description, requiresArg: true
+optionConfig = hyphenizeKeys config.data
 
 yargs
   .help   'help'
-  .alias  'h', 'help'
+  .option 'allow-scroll',
+    describe: 'Allow the terminal image to scroll when the foreground scrolls'
+
+options =
+  columnWidth: 'The width of a terminal column in pixels'
+  rowHeight:   'The height of a terminal row in pixels'
+  profile:     'The gnome terminal profile to set the background for'
+  imageFile:   'Where to save the background image'
+
+for option, description of options
+  yargs.option option,
+    describe:    description
+    default:     optionConfig[hyphenize option]
+    requiresArg: true
 
 args = yargs.argv
 
 if process.argv.length is 3 # No arguments other than subcommand
-  console.log "--#{key}\t#{value}" for key, value of hyphenizeKeys config.data
+  yargs.showHelp()
 else
   for key of config.data
     value = args[hyphenize key]
