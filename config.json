@@ -1,7 +1,7 @@
 {
   "profile": "Default",
-  "pixelsPerRow": 18,
-  "pixelsPerColumn": 9,
-  "allowScroll": false,
-  "imageFile": null
+  "row-height": 18,
+  "column-width": 9,
+  "allow-scroll": false,
+  "image-file": "/home/jimmy/Programming/Other/layer/output/background.png"
 }

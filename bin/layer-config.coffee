@@ -1,16 +1,32 @@
 #! /usr/bin/env coffee
 
-config = require '../src/config'
 yargs  = require 'yargs'
+config = require '../src/config'
+
+{ hyphenizeKeys, hyphenize } = require '../src/utils'
+
+options =
+  'allow-scroll': 'Allow the terminal image to scroll when the foreground scrolls'
+  'column-width': 'The width of a terminal column in pixels'
+  'image-file':   'Where to save the background image'
+  'profile':      'The gnome terminal profile to set the background for'
+  'row-height':   'The height of a terminal rowin pixels'
+
+for option, description of options
+  yargs.option option, describe: description, requiresArg: true
 
 yargs
-  .option 'profile',
-    describe: 'The gnome terminal profile to set the background for'
-    type:     'string'
-  .option 'allow-scroll', describe: 'Allow the terminal image to move on scroll'
-  .option 'row-height',   describe: 'The height of a terminal row'
-  .option 'column-width', describe: 'The width of a terminal column'
-  .option 'image-file',   describe: 'Where to save the background image'
   .help   'help'
   .alias  'h', 'help'
-  .argv
+
+args = yargs.argv
+
+if process.argv.length is 3 # No arguments other than subcommand
+  console.log "--#{key}\t#{value}" for key, value of hyphenizeKeys config.data
+else
+  for key of config.data
+    value = args[hyphenize key]
+    config.data[key] = value if value?
+
+  config.save()
+
