@@ -3,35 +3,21 @@
 yargs  = require 'yargs'
 config = require '../src/config'
 
-{ hyphenizeKeys, hyphenize } = require '../src/utils'
+yargs.help 'help'
 
-optionConfig = hyphenizeKeys config.data
+for option, { value, description } of config.raw
+  params = describe: description
+  unless typeof value is 'boolean'
+    params.default     = value ? config.DEFAULTS[option]
+    params.requiresArg = true
 
-yargs
-  .help   'help'
-  .option 'allow-scroll',
-    describe: 'Allow the terminal image to scroll when the foreground scrolls'
-
-options =
-  columnWidth: 'The width of a terminal column in pixels'
-  rowHeight:   'The height of a terminal row in pixels'
-  profile:     'The gnome terminal profile to set the background for'
-  imageFile:   'Where to save the background image'
-
-for option, description of options
-  yargs.option option,
-    describe:    description
-    default:     optionConfig[hyphenize option]
-    requiresArg: true
+  yargs.option option, params
 
 args = yargs.argv
 
 if process.argv.length is 3 # No arguments other than subcommand
   yargs.showHelp()
 else
-  for key of config.data
-    value = args[hyphenize key]
-    config.data[key] = value if value?
-
+  config.raw[key].value = args[key] for key of config.raw when args[key]?
   config.save()
 

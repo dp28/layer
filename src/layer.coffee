@@ -5,7 +5,7 @@ path     = require 'path'
 
 Renderer = require './renderer'
 Terminal = require './terminal'
-config   = require('./config').data
+config   = require('./config').getOptions()
 
 TEMP_IMAGE = path.join __dirname, '../', '/output/temp.png'
 TEMPLATE   = path.join __dirname, '../', '/templates/default.jade'

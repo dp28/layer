@@ -1,7 +1,22 @@
 {
-  "profile": "Default",
-  "row-height": 18,
-  "column-width": 9,
-  "allow-scroll": false,
-  "image-file": "/home/jimmy/Programming/Other/layer/output/background.png"
+  "allow-scroll": {
+    "value": false,
+    "description": "The gnome terminal profile to set the background for"
+  },
+  "row-height": {
+    "value": 18,
+    "description": "The height of a terminal row in pixels"
+  },
+  "column-width": {
+    "value": 9,
+    "description": "The width of a terminal column in pixels"
+  },
+  "profile": {
+    "value": "Default",
+    "description": "Allow the terminal image to scroll when the foreground scrolls"
+  },
+  "image-file": {
+    "value": null,
+    "description": "Where to save the background image"
+  }
 }
