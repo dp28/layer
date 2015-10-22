@@ -1,7 +1,7 @@
-fs   = require 'fs'
-path = require 'path'
+path     = require 'path'
+jsonFile = require './utils/json-file'
 
-{ hyphenize, camelize } = require './utils'
+{ hyphenize, camelize } = require './utils/string-helpers'
 
 class Config
 
@@ -11,15 +11,13 @@ class Config
     'image-file': path.join __dirname, '../', 'output/background.png'
 
   constructor: ->
-    @raw = JSON.parse fs.readFileSync CONFIG_FILE, 'utf8'
+    @raw = jsonFile.read CONFIG_FILE
 
   getOptions: ->
     @options ?= buildOptions @raw, @DEFAULTS
 
   save: ->
-    json = JSON.stringify @raw, null, 2
-    fs.writeFile CONFIG_FILE, json, (error) ->
-      console.log "Failed to save config due to error: #{error}" if error?
+    jsonFile.write CONFIG_FILE, @raw
 
   buildOptions = (config, defaults) ->
     options = {}

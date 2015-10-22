@@ -19,5 +19,6 @@ if process.argv.length is 3 # No arguments other than subcommand
   yargs.showHelp()
 else
   config.raw[key].value = args[key] for key of config.raw when args[key]?
-  config.save()
+  error = config.save()
+  console.log "Failed to save config due to error: #{error}" if error?
 
