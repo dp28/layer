@@ -3,7 +3,7 @@
     "value": false,
     "description": "The gnome terminal profile to set the background for"
   },
-  "default-template": {
+  "template": {
     "value": "default",
     "description": "The default template to render"
   },

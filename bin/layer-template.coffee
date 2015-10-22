@@ -1,6 +1,6 @@
 #! /usr/bin/env coffee
 
 yargs      = require 'yargs'
-controller = require '../src/templates-controller'
+templates = require '../src/templates'
 
-controller.show()
+templates.show()

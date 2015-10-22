@@ -12,8 +12,11 @@ class Config
     @raw = jsonFile.read CONFIG_FILE
     @raw['image-file'].value ?= DEFAULT_IMAGE
 
-  getOptions: ->
-    @options ?= buildOptions @raw
+  merge: (options) ->
+    defaults = buildOptions @raw
+    result = {}
+    result[key] = options[key] ? defaultValue for key, defaultValue of defaults
+    result
 
   save: ->
     @raw['image-file'].value = null if @raw['image-file'].value is DEFAULT_IMAGE

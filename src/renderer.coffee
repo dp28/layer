@@ -7,11 +7,9 @@ module.exports = class Renderer
   constructor: (dimensions) ->
     @page = @_phantom().then (phantom) -> buildPage phantom, dimensions
 
-  setContent: (html) ->
-    @page.then (page) -> page.set 'content', html
-
-  renderToFile: (fileName) ->
+  renderToFile: (html, fileName) ->
     @page.then (page) ->
+      page.set 'content', html
       page.render fileName
 
   exit: ->
