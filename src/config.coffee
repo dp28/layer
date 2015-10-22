@@ -6,22 +6,22 @@ jsonFile = require './utils/json-file'
 class Config
 
   CONFIG_FILE   = path.join __dirname, '../', 'config.json'
-
-  DEFAULTS:
-    'image-file': path.join __dirname, '../', 'output/background.png'
+  DEFAULT_IMAGE = path.join __dirname, '../', 'output/background.png'
 
   constructor: ->
     @raw = jsonFile.read CONFIG_FILE
+    @raw['image-file'].value ?= DEFAULT_IMAGE
 
   getOptions: ->
-    @options ?= buildOptions @raw, @DEFAULTS
+    @options ?= buildOptions @raw
 
   save: ->
+    @raw['image-file'].value = null if @raw['image-file'].value is DEFAULT_IMAGE
     jsonFile.write CONFIG_FILE, @raw
 
-  buildOptions = (config, defaults) ->
+  buildOptions = (config) ->
     options = {}
-    options[camelize key] = value ? defaults[key] for key, { value } of config
+    options[camelize key] = value for key, { value } of config
     options
 
 config = new Config

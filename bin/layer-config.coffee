@@ -8,7 +8,7 @@ yargs.help 'help'
 for option, { value, description } of config.raw
   params = describe: description
   unless typeof value is 'boolean'
-    params.default     = value ? config.DEFAULTS[option]
+    params.default     = value
     params.requiresArg = true
 
   yargs.option option, params
