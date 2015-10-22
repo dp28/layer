@@ -1,0 +1,6 @@
+{
+  "default": {
+    "jade": "[LAYER_HOME]/templates/default/template.jade",
+    "data": "[LAYER_HOME]/templates/default/data.json"
+  }
+}

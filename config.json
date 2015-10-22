@@ -3,6 +3,10 @@
     "value": false,
     "description": "The gnome terminal profile to set the background for"
   },
+  "default-template": {
+    "value": "default",
+    "description": "The default template to render"
+  },
   "row-height": {
     "value": 18,
     "description": "The height of a terminal row in pixels"

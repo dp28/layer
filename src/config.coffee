@@ -1,12 +1,12 @@
-path     = require 'path'
-jsonFile = require './utils/json-file'
+pathFromHome = require('./utils/path-from-home').pathFromHome
+jsonFile     = require './utils/json-file'
 
 { hyphenize, camelize } = require './utils/string-helpers'
 
 class Config
 
-  CONFIG_FILE   = path.join __dirname, '../', 'config.json'
-  DEFAULT_IMAGE = path.join __dirname, '../', 'output/background.png'
+  CONFIG_FILE   = pathFromHome 'config.json'
+  DEFAULT_IMAGE = pathFromHome 'output/background.png'
 
   constructor: ->
     @raw = jsonFile.read CONFIG_FILE

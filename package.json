@@ -8,7 +8,8 @@
   "bin": {
     "layer": "bin/layer.coffee",
     "layer-config": "bin/layer-config.coffee",
-    "layer-render": "bin/layer-render.coffee"
+    "layer-render": "bin/layer-render.coffee",
+    "layer-template": "bin/layer-template.coffee"
   },
   "repository": {
     "type": "git",

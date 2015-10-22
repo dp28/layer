@@ -12,7 +12,7 @@ TEMPLATE   = path.join __dirname, '../', '/templates/default.jade'
 
 module.exports = class Layer
 
-  constructor : ->
+  constructor: ->
     @template = jade.compileFile TEMPLATE
     @terminal = new Terminal config
 
