@@ -1,6 +1,6 @@
 #! /usr/bin/env coffee
 
-yargs      = require 'yargs'
+args      = require('../src/args').camelized 'template'
 templates = require '../src/templates'
 
-templates.show()
+templates.show args.template
