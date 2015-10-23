@@ -1,26 +1,27 @@
 {
   "allow-scroll": {
-    "value": false,
-    "description": "The gnome terminal profile to set the background for"
+    "default": false,
+    "describe": "The gnome terminal profile to set the background for"
   },
   "template": {
-    "value": "default",
-    "description": "The default template to render"
+    "default": "default",
+    "describe": "The saved template to render",
+    "alias": "t"
   },
   "row-height": {
-    "value": 18,
-    "description": "The height of a terminal row in pixels"
+    "default": 18,
+    "describe": "The height of a terminal row in pixels"
   },
   "column-width": {
-    "value": 9,
-    "description": "The width of a terminal column in pixels"
+    "default": 9,
+    "describe": "The width of a terminal column in pixels"
   },
   "profile": {
-    "value": "Default",
-    "description": "Allow the terminal image to scroll when the foreground scrolls"
+    "default": "Default",
+    "describe": "Allow the terminal image to scroll when the foreground scrolls"
   },
   "image-file": {
-    "value": null,
-    "description": "Where to save the background image"
+    "default": null,
+    "describe": "Where to save the background image"
   }
 }

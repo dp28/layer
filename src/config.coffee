@@ -10,21 +10,15 @@ class Config
 
   constructor: ->
     @raw = jsonFile.read CONFIG_FILE
-    @raw['image-file'].value ?= DEFAULT_IMAGE
-
-  merge: (options) ->
-    defaults = buildOptions @raw
-    result = {}
-    result[key] = options[key] ? defaultValue for key, defaultValue of defaults
-    result
+    @raw['image-file'].default ?= DEFAULT_IMAGE
 
   save: ->
-    @raw['image-file'].value = null if @raw['image-file'].value is DEFAULT_IMAGE
+    @raw['image-file'].default = null if @raw['image-file'].default is DEFAULT_IMAGE
     jsonFile.write CONFIG_FILE, @raw
 
   buildOptions = (config) ->
     options = {}
-    options[camelize key] = value for key, { value } of config
+    options[camelize key] = value.default for key, value of config
     options
 
 config = new Config
