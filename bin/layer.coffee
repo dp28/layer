@@ -6,8 +6,8 @@ subcommand = (name, description) ->
   program.command name, description, -> require "./layer-#{name}"
 
 program
-  .usage 'layer <command> [options]'
-  .help 'help'
+  .usage 'Usage: layer <command> [options]'
+  .help  'help'
   .alias 'h', 'help'
 
 subcommand 'config',   'Show or set global configuration'
@@ -16,3 +16,4 @@ subcommand 'template', 'Add, view and edit templates'
 
 program.argv
 
+program.showHelp() if process.argv.length is 2
