@@ -34,5 +34,5 @@ findTemplate = (name) ->
 
 printFile = (filePath, label) ->
   labelBorder = Array(label.length + 1).join '-'
-  console.log [labelBorder, label, labelBorder].join '\n'
+  console.log [labelBorder, label + ':', filePath, labelBorder].join '\n'
   console.log fs.readFileSync filePath, 'utf-8'
