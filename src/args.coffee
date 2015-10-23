@@ -3,21 +3,27 @@ config = require './config'
 
 { camelizeKeys } = require './utils/string-helpers'
 
-module.exports =
-  hyphenized: -> buildArgs()
-  camelized:  -> camelizeKeys buildArgs(arguments...).argv
+module.exports = yargs
 
-buildArgs = (options...) ->
-  addOptions options
-  yargs
+yargs.withDefaultOptions = (options...) ->
+    buildArgs @, options
+    @
+
+yargs.camelize = ->
+    camelizeKeys @argv
+
+buildArgs = (args, options) ->
+  addOptions args, options
+  args
     .help  'help'
     .alias 'h', 'help'
 
-addOptions = (only) ->
+addOptions = (args, only) ->
   for option, params of config.raw when only.length is 0 or option in only
     if typeof params.default is 'boolean'
       params.default = undefined
+      params.type = 'boolean'
     else
       params.requiresArg = true
 
-    yargs.option option, params
+    args.option option, params
