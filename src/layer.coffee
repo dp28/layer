@@ -25,7 +25,7 @@ module.exports = class Layer
 
   _switchBackground: (html) ->
     @_replace(html, TEMP_IMAGE).then =>
-      fs.unlink TEMP_IMAGE
+      fs.unlinkSync TEMP_IMAGE
       @_replace html, @config.imageFile
 
   _replace: (html, file) ->

@@ -10,7 +10,8 @@ module.exports = class Renderer
   renderToFile: (html, fileName) ->
     @page.then (page) ->
       page.set 'content', html
-      page.render fileName
+      new Promise (resolve) ->
+        page.render fileName, resolve
 
   exit: ->
     @_phantom().then (phantom) -> phantom.exit()
