@@ -1,7 +1,7 @@
 {
   "allow-scroll": {
     "default": false,
-    "describe": "The gnome terminal profile to set the background for"
+    "describe": "Allow the terminal image to scroll when the foreground scrolls"
   },
   "template": {
     "default": "default",
@@ -18,7 +18,7 @@
   },
   "profile": {
     "default": "Default",
-    "describe": "Allow the terminal image to scroll when the foreground scrolls"
+    "describe": "The gnome terminal profile to set the background for"
   },
   "image-file": {
     "default": null,
