@@ -1,5 +1,6 @@
-yargs  = require 'yargs'
-config = require './config'
+yargs     = require 'yargs'
+config    = require './config'
+templates = require './templates'
 
 { camelizeKeys } = require './utils/string-helpers'
 
@@ -27,3 +28,10 @@ addOptions = (args, only) ->
       params.requiresArg = true
 
     args.option option, params
+
+  addTemplateDefaults args, only
+
+addTemplateDefaults = (args, only) ->
+  template = templates.resolveTemplate config.raw.template.default
+  for arg in ['data', 'jade'] when only.length is 0 or "template-#{arg}" in only
+    args.default "template-#{arg}", template[arg]

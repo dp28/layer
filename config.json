@@ -8,6 +8,14 @@
     "describe": "The saved template to render",
     "alias": "t"
   },
+  "template-jade": {
+    "describe": "The jade of the saved template to render",
+    "alias": "j"
+  },
+  "template-data": {
+    "describe": "The data to use when rendering the template",
+    "alias": "d"
+  },
   "row-height": {
     "default": 18,
     "describe": "The height of a terminal row in pixels"

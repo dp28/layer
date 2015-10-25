@@ -8,20 +8,23 @@ module.exports =
   save: ->
     jsonFile.write TEMPLATES_FILE, TEMPLATES
 
-  getCompiled: (name) ->
-    compile resolvePaths findTemplate name
+  getCompiled: (name, jade = null, data = null) ->
+    compile resolveTemplate name, jade, data
 
-  show: (name) ->
-    template = resolvePaths findTemplate name
+  show: (name, jade = null, data = null) ->
+    template = resolveTemplate name, jade, data
     printFile template.jade, 'Jade Template'
     printFile template.data, 'Data'
 
-TEMPLATES_FILE = path.pathFromHome 'templates.json'
-TEMPLATES = jsonFile.read TEMPLATES_FILE
+  resolveTemplate: -> resolveTemplate arguments...
 
-resolvePaths = (template) ->
-  jade: path.pathResolvingHome template.jade
-  data: path.pathResolvingHome template.data
+TEMPLATES_FILE = path.pathFromHome 'templates.json'
+TEMPLATES      = jsonFile.read TEMPLATES_FILE
+
+resolveTemplate = (name, jade = null, data = null) ->
+  template = findTemplate name
+  jade: jade ? path.pathResolvingHome template.jade
+  data: data ? path.pathResolvingHome template.data
 
 compile = (template) ->
   compileHtml = jade.compileFile template.jade
