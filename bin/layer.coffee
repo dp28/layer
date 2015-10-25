@@ -12,7 +12,8 @@ program
 
 subcommand 'config', 'Show or set global configuration'
 subcommand 'render', 'Render a template to the terminal background'
-subcommand 'show',   'Print a template and its data o the console'
+subcommand 'show',   'Print a template and its data to the console'
+subcommand 'new',    'Save a jade file and json file as a new template'
 
 program.argv
 

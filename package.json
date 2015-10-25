@@ -9,7 +9,8 @@
     "layer": "bin/layer.coffee",
     "layer-config": "bin/layer-config.coffee",
     "layer-render": "bin/layer-render.coffee",
-    "layer-show": "bin/layer-show.coffee"
+    "layer-show": "bin/layer-show.coffee",
+    "layer-new": "bin/layer-new.coffee"
   },
   "repository": {
     "type": "git",

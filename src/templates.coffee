@@ -2,24 +2,25 @@ fs       = require 'fs'
 jade     = require 'jade'
 path     = require './utils/path-from-home'
 jsonFile = require './utils/json-file'
-error    = require './utils/error'
+error    = require('./utils/validation').error
 
 module.exports =
-  save: ->
-    jsonFile.write TEMPLATES_FILE, TEMPLATES
+  getCompiled: ->
+    compile resolveTemplate arguments...
 
-  getCompiled: (name, jade = null, data = null) ->
-    compile resolveTemplate name, jade, data
-
-  show: (name, jade = null, data = null) ->
-    template = resolveTemplate name, jade, data
+  show: ->
+    template = resolveTemplate arguments...
     printFile template.jade, 'Jade Template'
     printFile template.data, 'Data'
+
+  create: (name, jade, data) ->
+    templates[name] = { jade, data }
+    save()
 
   resolveTemplate: -> resolveTemplate arguments...
 
 TEMPLATES_FILE = path.pathFromHome 'templates.json'
-TEMPLATES      = jsonFile.read TEMPLATES_FILE
+templates      = jsonFile.read TEMPLATES_FILE
 
 resolveTemplate = (name, jade = null, data = null) ->
   template = findTemplate name
@@ -31,7 +32,7 @@ compile = (template) ->
   compileHtml jsonFile.read template.data
 
 findTemplate = (name) ->
-  template = TEMPLATES[name]
+  template = templates[name]
   error "No saved template '#{name}'" unless template?
   template
 
@@ -39,3 +40,6 @@ printFile = (filePath, label) ->
   labelBorder = Array(label.length + 1).join '-'
   console.log [labelBorder, label + ':', filePath, labelBorder].join '\n'
   console.log fs.readFileSync filePath, 'utf-8'
+
+save = ->
+  jsonFile.write TEMPLATES_FILE, templates
