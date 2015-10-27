@@ -11,6 +11,7 @@
     "layer-render": "bin/layer-render.coffee",
     "layer-delete": "bin/layer-delete.coffee",
     "layer-show": "bin/layer-show.coffee",
+    "layer-list": "bin/layer-list.coffee",
     "layer-new": "bin/layer-new.coffee"
   },
   "repository": {

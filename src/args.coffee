@@ -6,6 +6,10 @@ templates = require './templates'
 
 module.exports = yargs
 
+yargs
+  .help  'help'
+  .alias 'h', 'help'
+
 yargs.withDefaultOptions = (options...) ->
     buildArgs @, options
     @
@@ -15,9 +19,6 @@ yargs.camelize = ->
 
 buildArgs = (args, options) ->
   addOptions args, options
-  args
-    .help  'help'
-    .alias 'h', 'help'
 
 addOptions = (args, only) ->
   for option, params of config.raw when only.length is 0 or option in only
