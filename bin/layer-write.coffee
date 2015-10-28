@@ -30,3 +30,4 @@ data     = jsonFile.read dataFile
 accessor = new ObjectAccessor
 accessor.setValue data, argv.key, argv.value
 jsonFile.write dataFile, data
+require './layer-render'
