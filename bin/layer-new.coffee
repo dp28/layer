@@ -1,10 +1,10 @@
 #! /usr/bin/env coffee
 
-fs        = require 'fs'
-path      = require 'path'
-args      = require '../src/args'
-templates = require '../src/templates'
-ensureAll = require('../src/utils/validation').ensureAll
+fs         = require 'fs'
+path       = require 'path'
+args       = require '../src/args'
+templates  = require '../src/templates'
+validation = require '../src/utils/validation'
 
 templateArgs = ['template', 'template-jade', 'template-data']
 
@@ -25,16 +25,13 @@ fileExists = (filePath) ->
   catch e
     false
 
-ensureAll templateArgs,
-  (arg) -> argv[arg]?
-  (arg) -> "'--#{arg}' is required"
-
+validation.ensureAllFound templateArgs, argv
 args = args.camelize()
 
 jade = path.resolve args.templateJade
 data = path.resolve args.templateData
 
-ensureAll [jade, data],
+validation.ensureAll [jade, data],
   (file) -> fileExists file
   (file) -> "'#{file}' does not exist"
 

@@ -17,6 +17,10 @@ module.exports =
     templates[name] = { jade, data }
     save()
 
+  update: (name, template) ->
+    templates[name] = template
+    save()
+
   delete: (name) ->
     findTemplate name
     delete templates[name]
@@ -25,7 +29,8 @@ module.exports =
   list: ->
     console.log name for name of templates
 
-  resolveTemplate: -> resolveTemplate arguments...
+  resolveTemplate: ->
+    resolveTemplate arguments...
 
 TEMPLATES_FILE = path.pathFromHome 'templates.json'
 templates      = jsonFile.read TEMPLATES_FILE

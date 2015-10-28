@@ -16,6 +16,7 @@ subcommand 'delete', 'Delete a saved template (does not remove the files)'
 subcommand 'list',   'List the names of all saved templates'
 subcommand 'show',   'Print a template and its data to the console'
 subcommand 'new',    'Save a jade file and json file as a new template'
+subcommand 'write',  'Write data to the saved data for a template'
 
 program.argv
 

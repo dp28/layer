@@ -1,8 +1,8 @@
 #! /usr/bin/env coffee
 
-args      = require '../src/args'
-templates = require '../src/templates'
-ensureAll = require('../src/utils/validation').ensureAll
+args           = require '../src/args'
+templates      = require '../src/templates'
+ensureAllFound = require('../src/utils/validation').ensureAllFound
 
 templateArgs = ['template']
 
@@ -14,10 +14,7 @@ args.default arg, undefined for arg in templateArgs
 
 argv = args.argv
 
-ensureAll templateArgs,
-  (arg) -> argv[arg]?
-  (arg) -> "'--#{arg}' is required"
-
+ensureAllFound templateArgs, argv
 args = args.camelize()
 
 templates.delete args.template
