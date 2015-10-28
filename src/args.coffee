@@ -28,6 +28,11 @@ addOptions = (args, only) ->
     else
       params.requiresArg = true
 
+    if params.alias?.length is 1
+      shortOption  = params.alias
+      params.alias = option
+      option       = shortOption
+
     args.option option, params
 
   addTemplateDefaults args, only
