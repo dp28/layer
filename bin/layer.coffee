@@ -6,9 +6,11 @@ subcommand = (name, description) ->
   program.command name, description, -> require "./layer-#{name}"
 
 program
-  .usage 'Usage: layer <command> [options]'
-  .help  'help'
-  .alias 'h', 'help'
+  .usage   'Usage: layer <command> [options]'
+  .help    'help'
+  .alias   'h', 'help'
+  .version -> require('../package').version
+  .alias   'v', 'version'
 
 subcommand 'append', 'Append data to the saved data for a template'
 subcommand 'config', 'Show or set global configuration'
