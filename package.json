@@ -8,11 +8,13 @@
   "bin": {
     "layer": "bin/layer.coffee",
     "layer-config": "bin/layer-config.coffee",
-    "layer-render": "bin/layer-render.coffee",
     "layer-delete": "bin/layer-delete.coffee",
-    "layer-show": "bin/layer-show.coffee",
     "layer-list": "bin/layer-list.coffee",
-    "layer-new": "bin/layer-new.coffee"
+    "layer-new": "bin/layer-new.coffee",
+    "layer-read": "bin/layer-read.coffee",
+    "layer-render": "bin/layer-render.coffee",
+    "layer-show": "bin/layer-show.coffee",
+    "layer-write": "bin/layer-write.coffee"
   },
   "repository": {
     "type": "git",

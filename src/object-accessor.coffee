@@ -16,10 +16,13 @@ module.exports = class ObjectAccessor
   setValue: (object, key, value) ->
     accessors     = @parse key
     child         = accessors.pop()
-    parent        = getValue object, accessors
+    parent        = getValueFromAccessors object, accessors
     parent[child] = parseValue value
 
-  getValue = (object, accessors) ->
+  getValue: (object, key) ->
+    getValueFromAccessors object, @parse key
+
+  getValueFromAccessors = (object, accessors) ->
     for accessor in accessors
       object = object[accessor]
       error "#{object} has no property #{accessor}" unless object?
