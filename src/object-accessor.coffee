@@ -20,7 +20,6 @@ module.exports = class ObjectAccessor
     parent[child] = JSON.parse value
 
   getValue = (object, accessors) ->
-    console.log object, accessors
     for accessor in accessors
       object = object[accessor]
       error "#{object} has no property #{accessor}" unless object?
