@@ -1,3 +1,5 @@
+chalk = require 'chalk'
+
 module.exports =
   ensureAll: ensureAll
 
@@ -10,7 +12,8 @@ module.exports =
     logError message
     process.exit 1
 
-logError = (message) -> console.log '[Error]', message
+logError = (message) ->
+  console.log chalk.red('[Error]'), message
 
 ensureAll = (array, check, generateMessage) ->
   success = true
