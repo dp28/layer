@@ -11,16 +11,18 @@ args
   .describe 'template', 'The name of the saved template to change the data for'
 
   .option 'k',
-    describe:    'The key chain to the data object/array to update, eg path[2].object'
     requiresArg: true
     alias:       'key'
     type:        'string'
+    describe:    'The key chain to the data object/array to update, eg --key ' +
+                 'path[2].object'
 
   .option 'v',
-    describe:    'The value to insert in the key. Values are parsed as JSON, but fall back to strings if invalid.'
     requiresArg: true
     alias:       'value'
     type:        'string'
+    describe:    'The value to insert in the key. Values are parsed as JSON, ' +
+                 'but fall back to strings if invalid.'
 
 argv = args.camelize()
 
