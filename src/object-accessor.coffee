@@ -19,6 +19,12 @@ module.exports = class ObjectAccessor
     parent        = getValueFromAccessors object, accessors
     parent[child] = parseValue value
 
+  appendValue: (object, key, value) ->
+    accessors     = @parse key
+    child         = accessors.pop()
+    parent        = getValueFromAccessors object, accessors
+    parent[child] = append parent[child], parseValue value
+
   getValue: (object, key) ->
     getValueFromAccessors object, @parse key
 
@@ -33,3 +39,8 @@ module.exports = class ObjectAccessor
       JSON.parse string
     catch e
       string
+
+  append = (object, toAppend) ->
+    return toAppend unless object?
+    if object instanceof Array then object.push toAppend else object += toAppend
+    object

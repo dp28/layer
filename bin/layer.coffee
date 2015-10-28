@@ -10,6 +10,7 @@ program
   .help  'help'
   .alias 'h', 'help'
 
+subcommand 'append', 'Append data to the saved data for a template'
 subcommand 'config', 'Show or set global configuration'
 subcommand 'delete', 'Delete a saved template (does not remove the files)'
 subcommand 'list',   'List the names of all saved templates'

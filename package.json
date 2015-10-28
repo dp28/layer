@@ -7,6 +7,7 @@
   "preferGlobal": true,
   "bin": {
     "layer": "bin/layer.coffee",
+    "layer-append": "bin/layer-append.coffee",
     "layer-config": "bin/layer-config.coffee",
     "layer-delete": "bin/layer-delete.coffee",
     "layer-list": "bin/layer-list.coffee",
