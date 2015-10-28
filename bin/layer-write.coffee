@@ -17,7 +17,7 @@ args
     type:        'string'
 
   .option 'v',
-    describe:    'The value to insert in the key. Values are parsed as JSON.'
+    describe:    'The value to insert in the key. Values are parsed as JSON, but fall back to strings if invalid.'
     requiresArg: true
     alias:       'value'
     type:        'string'

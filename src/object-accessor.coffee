@@ -17,10 +17,16 @@ module.exports = class ObjectAccessor
     accessors     = @parse key
     child         = accessors.pop()
     parent        = getValue object, accessors
-    parent[child] = JSON.parse value
+    parent[child] = parseValue value
 
   getValue = (object, accessors) ->
     for accessor in accessors
       object = object[accessor]
       error "#{object} has no property #{accessor}" unless object?
     object
+
+  parseValue = (string) ->
+    try
+      JSON.parse string
+    catch e
+      string
