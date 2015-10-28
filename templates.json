@@ -1,7 +1,7 @@
 {
   "default": {
-    "jade": "[LAYER_HOME]templates/default/template.jade",
-    "data": "[LAYER_HOME]templates/default/data.json"
+    "jade": "/home/jimmy/Programming/Other/layer/templates/default/template.jade",
+    "data": "/home/jimmy/Programming/Other/layer/templates/default/data.json"
   },
   "other": {
     "jade": "[LAYER_HOME]templates/default/template.jade",

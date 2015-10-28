@@ -4,7 +4,6 @@ args           = require '../src/args'
 templates      = require '../src/templates'
 ObjectAccessor = require '../src/object-accessor'
 jsonFile       = require '../src/utils/json-file'
-ensureAllFound = require('../src/utils/validation').ensureAllFound
 
 args
   .withDefaultOptions 'template'
@@ -17,9 +16,10 @@ args
     describe:    'The key chain to the data object/array to print, eg --key ' +
                  'path[2].object'
 
+  .demand ['key']
+
 argv = args.camelize()
 
-ensureAllFound ['key'], argv
 dataFile = templates.resolveTemplate(argv.template).data
 data     = jsonFile.read dataFile
 accessor = new ObjectAccessor

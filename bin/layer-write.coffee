@@ -4,7 +4,6 @@ args           = require '../src/args'
 templates      = require '../src/templates'
 ObjectAccessor = require '../src/object-accessor'
 jsonFile       = require '../src/utils/json-file'
-ensureAllFound = require('../src/utils/validation').ensureAllFound
 
 args
   .withDefaultOptions 'template'
@@ -24,9 +23,10 @@ args
     describe:    'The value to insert in the key. Values are parsed as JSON, ' +
                  'but fall back to strings if invalid.'
 
+  .demand ['key', 'value']
+
 argv = args.camelize()
 
-ensureAllFound ['key', 'value'], argv
 dataFile = templates.resolveTemplate(argv.template).data
 data     = jsonFile.read dataFile
 accessor = new ObjectAccessor
