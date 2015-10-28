@@ -5,6 +5,7 @@
   "author": "Daniel Patterson",
   "license": "MIT",
   "preferGlobal": true,
+  "readme": "README.md",
   "bin": {
     "layer": "bin/layer.coffee",
     "layer-append": "bin/layer-append.coffee",
