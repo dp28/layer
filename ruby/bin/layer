@@ -1,5 +1,0 @@
-#! /usr/bin/env ruby
-
-require '/usr/local/lib/layer/layer'
-
-Layer::Layer.start(ARGV)
