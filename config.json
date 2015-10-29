@@ -14,8 +14,7 @@
   },
   "template-data": {
     "describe": "The data to use when rendering the template",
-    "alias": "d",
-    "demand": true
+    "alias": "d"
   },
   "row-height": {
     "default": 18,
