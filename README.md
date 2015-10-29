@@ -1,6 +1,6 @@
 # Layer
 
-A command-line tool to the GNOME terminal background from Jade templates and JSON data
+A command-line tool to the GNOME terminal background from Jade templates and JSON data.
 
 ## Simple example
 
@@ -29,6 +29,7 @@ and JSON:
 ````
 
 renders the output:
+
 ![layer-render](https://cloud.githubusercontent.com/assets/2752129/10805169/b7bc23e0-7dc3-11e5-8c7f-89b43b9c743d.png)
 
 ## Why
