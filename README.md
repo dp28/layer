@@ -44,7 +44,10 @@ can be used:
 
 ## Installation
 
-Provide code examples and explanations of how to get the project.
+Using npm:
+```
+npm install -g layer-terminal
+```
 
 ## Usage
 `layer <command> [options]`
