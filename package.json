@@ -5,7 +5,6 @@
   "author": "Daniel Patterson <dan24patt@gmail.com",
   "license": "MIT",
   "preferGlobal": true,
-  "readme": "README.md",
   "bugs": "https://github.com/dp28/layer/issues",
   "os": [
     "linux"
