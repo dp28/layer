@@ -4,7 +4,7 @@
     "describe": "Allow the terminal image to scroll when the foreground scrolls"
   },
   "template": {
-    "default": "default",
+    "default": "clear",
     "describe": "The saved template to render",
     "alias": "t"
   },

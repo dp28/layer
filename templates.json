@@ -1,10 +1,6 @@
 {
-  "default": {
-    "jade": "/home/jimmy/Programming/Other/layer/templates/default/template.jade",
-    "data": "/home/jimmy/Programming/Other/layer/templates/default/data.json"
-  },
-  "other": {
-    "jade": "[LAYER_HOME]templates/default/template.jade",
-    "data": "[LAYER_HOME]templates/other/data.json"
+  "clear": {
+    "jade": "/home/jimmy/Programming/Other/layer/templates/clear/template.jade",
+    "data": "/home/jimmy/Programming/Other/layer/templates/clear/data.json"
   }
 }
