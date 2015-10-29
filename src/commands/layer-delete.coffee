@@ -1,8 +1,6 @@
-#! /usr/bin/env coffee
-
-args           = require '../src/args'
-templates      = require '../src/templates'
-ensureAllFound = require('../src/utils/validation').ensureAllFound
+args           = require '../args'
+templates      = require '../templates'
+ensureAllFound = require('../utils/validation').ensureAllFound
 
 templateArgs = ['template']
 

@@ -3,7 +3,7 @@
 program = require 'yargs'
 
 subcommand = (name, description) ->
-  program.command name, description, -> require "./layer-#{name}"
+  program.command name, description, -> require "../src/commands/layer-#{name}"
 
 program
   .usage   'Usage: layer <command> [options]'

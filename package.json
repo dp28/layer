@@ -8,17 +8,7 @@
   "readme": "README.md",
   "bugs": "https://github.com/dp28/layer/issues",
   "bin": {
-    "layer": "bin/layer.coffee",
-    "layer-append": "bin/layer-append.coffee",
-    "layer-config": "bin/layer-config.coffee",
-    "layer-delete": "bin/layer-delete.coffee",
-    "layer-list": "bin/layer-list.coffee",
-    "layer-new": "bin/layer-new.coffee",
-    "layer-read": "bin/layer-read.coffee",
-    "layer-remove": "bin/layer-remove.coffee",
-    "layer-render": "bin/layer-render.coffee",
-    "layer-show": "bin/layer-show.coffee",
-    "layer-write": "bin/layer-write.coffee"
+    "layer": "bin/layer.coffee"
   },
   "repository": {
     "type": "git",

@@ -1,7 +1,5 @@
-#! /usr/bin/env coffee
-
-config = require '../src/config'
-args   = require('../src/args').withDefaultOptions()
+config = require '../config'
+args   = require('../args').withDefaultOptions()
 argv   = args.argv
 
 if process.argv.length is 3 # No arguments other than subcommand

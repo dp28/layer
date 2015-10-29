@@ -1,10 +1,8 @@
-#! /usr/bin/env coffee
-
 fs         = require 'fs'
 path       = require 'path'
-args       = require '../src/args'
-templates  = require '../src/templates'
-validation = require '../src/utils/validation'
+args       = require '../args'
+templates  = require '../templates'
+validation = require '../utils/validation'
 
 templateArgs = ['template', 'template-jade', 'template-data']
 

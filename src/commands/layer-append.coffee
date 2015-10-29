@@ -1,9 +1,7 @@
-#! /usr/bin/env coffee
-
-args           = require '../src/args'
-templates      = require '../src/templates'
-ObjectAccessor = require '../src/object-accessor'
-jsonFile       = require '../src/utils/json-file'
+args           = require '../args'
+templates      = require '../templates'
+ObjectAccessor = require '../object-accessor'
+jsonFile       = require '../utils/json-file'
 
 args
   .withDefaultOptions 'template'
@@ -20,8 +18,8 @@ args
     requiresArg: true
     alias:       'value'
     type:        'string'
-    describe:    'The value to insert in the key. Values are parsed as JSON, ' +
-                 'but fall back to strings if invalid.'
+    describe:    'The value to append to the value of the key. Values are ' +
+                 'parsed as JSON, but fall back to strings if invalid.'
 
   .demand ['key', 'value']
 
@@ -30,6 +28,6 @@ argv = args.camelize()
 dataFile = templates.resolveTemplate(argv.template).data
 data     = jsonFile.read dataFile
 accessor = new ObjectAccessor
-accessor.setValue data, argv.key, argv.value
+accessor.appendValue data, argv.key, argv.value
 jsonFile.write dataFile, data
 require './layer-render'

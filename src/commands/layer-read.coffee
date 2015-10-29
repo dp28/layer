@@ -1,9 +1,7 @@
-#! /usr/bin/env coffee
-
-args           = require '../src/args'
-templates      = require '../src/templates'
-ObjectAccessor = require '../src/object-accessor'
-jsonFile       = require '../src/utils/json-file'
+args           = require '../args'
+templates      = require '../templates'
+ObjectAccessor = require '../object-accessor'
+jsonFile       = require '../utils/json-file'
 
 args
   .withDefaultOptions 'template'

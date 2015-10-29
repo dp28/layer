@@ -1,7 +1,5 @@
-#! /usr/bin/env coffee
-
-args      = require '../src/args'
-templates = require '../src/templates'
+args      = require '../args'
+templates = require '../templates'
 
 args
   .withDefaultOptions 'template', 'template-jade', 'template-data'
