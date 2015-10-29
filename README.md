@@ -37,7 +37,8 @@ renders the output:
 Layer makes it possible to programmatically change the terminal background as a
 way of providing information without disrupting your workflow. For example, it
 can be used:
-* To notify you that a long-running script has finished
+* To notify you that a long-running script has finished (see the provided
+'notifications' template)
 * As an in-your-face todo list
 * As a reference for keyboard shortcuts that you do not yet know
 

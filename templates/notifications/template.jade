@@ -1,0 +1,35 @@
+html
+  head
+    style.
+      body {
+        background:  black;
+        color:       black;
+        font-weight: bold;
+      }
+
+      #notifications {
+        width: 300px;
+        float: right;
+      }
+
+      .time, .text {
+        padding: 2px 5px;
+      }
+
+      .error   { background: #d9534f; }
+      .warning { background: #f0ad4e; }
+      .success { background: #5cb85c; }
+      .info    { background: #5bc0de; }
+
+  body
+    table#notifications
+      - var n = 1
+      while n <= queueSize && n <= notifications.length
+        - var notification = notifications[notifications.length - n++]
+        - var type         = notification.type ? notification.type : 'info'
+
+        tr.notification(class='#{type}')
+          td.time #{notification.time}
+          td.text #{notification.text}
+
+

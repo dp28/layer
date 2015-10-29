@@ -1,0 +1,35 @@
+{
+  "queueSize": 5,
+  "notifications": [
+    {
+      "text": "Something might require your attention ...",
+      "type": "warning",
+      "time": "07:10"
+    },
+    {
+      "text": "It worked",
+      "type": "success",
+      "time": "08:02"
+    },
+    {
+      "text": "This is a longer notification which wraps around",
+      "type": "info",
+      "time": "10:25"
+    },
+    {
+      "text": "Something is happening",
+      "type": "warning",
+      "time": "12:10"
+    },
+    {
+      "text": "Ahhh! It's all gone wrong!",
+      "type": "error",
+      "time": "13:37"
+    },
+    {
+      "text": "This is a notification",
+      "type": "info",
+      "time": "18:15"
+    }
+  ]
+}

@@ -10,5 +10,9 @@
   "layer-cheatsheet": {
     "jade": "[LAYER_HOME]templates/cheatsheet/template.jade",
     "data": "[LAYER_HOME]templates/cheatsheet/data.json"
+  },
+  "notifications": {
+    "jade": "[LAYER_HOME]templates/notifications/template.jade",
+    "data": "[LAYER_HOME]templates/notifications/data.json"
   }
 }
