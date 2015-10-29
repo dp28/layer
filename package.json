@@ -1,11 +1,12 @@
 {
   "name": "layer",
   "version": "0.0.0",
-  "description": "A command-line tool to convert HTML pages to backgrounds for the gnome terminal.",
-  "author": "Daniel Patterson",
+  "description": "A command-line tool to change the GNOME terminal background from Jade templates and JSON data.",
+  "author": "Daniel Patterson <dan24patt@gmail.com",
   "license": "MIT",
   "preferGlobal": true,
   "readme": "README.md",
+  "bugs": "https://github.com/dp28/layer/issues",
   "bin": {
     "layer": "bin/layer.coffee",
     "layer-append": "bin/layer-append.coffee",
@@ -24,11 +25,9 @@
   },
   "keywords": [
     "terminal",
-    "background"
+    "background",
+    "gnome"
   ],
-  "bugs": {
-    "url": "https://github.com/dp28/layer/issues"
-  },
   "dependencies": {
     "bluebird": "~2.10.2",
     "chalk": "^1.1.1",
