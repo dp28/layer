@@ -1,6 +1,10 @@
 {
   "clear": {
-    "jade": "/home/jimmy/Programming/Other/layer/templates/clear/template.jade",
-    "data": "/home/jimmy/Programming/Other/layer/templates/clear/data.json"
+    "jade": "[LAYER_HOME]templates/clear/template.jade",
+    "data": "[LAYER_HOME]templates/clear/data.json"
+  },
+  "layer-cheatsheet": {
+    "jade": "[LAYER_HOME]templates/cheatsheet/template.jade",
+    "data": "[LAYER_HOME]templates/cheatsheet/data.json"
   }
 }

@@ -1,0 +1,46 @@
+{
+  "title": "layer cheatsheet",
+  "usage": "layer <command> [options]",
+  "commands": [
+    {
+      "name": "append",
+      "description": "Append data to the saved data for a template"
+    },
+    {
+      "name": "config",
+      "description": "Show or set global configuration"
+    },
+    {
+      "name": "delete",
+      "description": "Delete a saved template (does not remove the files)"
+    },
+    {
+      "name": "list",
+      "description": "List the names of all saved templates"
+    },
+    {
+      "name": "new",
+      "description": "Save a jade file and json file as a new template"
+    },
+    {
+      "name": "read",
+      "description": "Print a value from within a template to the console"
+    },
+    {
+      "name": "remove",
+      "description": "Delete the value of a key within a template's data"
+    },
+    {
+      "name": "render",
+      "description": "Render a template to the terminal background"
+    },
+    {
+      "name": "show",
+      "description": "Print a template and its data to the console"
+    },
+    {
+      "name": "write",
+      "description": "Write data to the saved data for a template"
+    }
+  ]
+}

@@ -4,7 +4,7 @@
     "describe": "Allow the terminal image to scroll when the foreground scrolls"
   },
   "template": {
-    "default": "clear",
+    "default": "layer-cheatsheet",
     "describe": "The saved template to render",
     "alias": "t"
   },
