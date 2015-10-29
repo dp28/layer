@@ -99,6 +99,11 @@ template data:
 }
 ````
 `layer read -k test[0]` prints `1` to the console.
+#### remove
+**Arguments:** `-k` /`--key`, `-t`/`--template`
+
+Delete the value of a key within a template's data. If the key is an index into
+an array, the array is reduced in size.
 #### list
 List the names of all saved templates.
 #### show

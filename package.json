@@ -15,6 +15,7 @@
     "layer-list": "bin/layer-list.coffee",
     "layer-new": "bin/layer-new.coffee",
     "layer-read": "bin/layer-read.coffee",
+    "layer-remove": "bin/layer-remove.coffee",
     "layer-render": "bin/layer-render.coffee",
     "layer-show": "bin/layer-show.coffee",
     "layer-write": "bin/layer-write.coffee"

@@ -28,6 +28,15 @@ module.exports = class ObjectAccessor
   getValue: (object, key) ->
     getValueFromAccessors object, @parse key
 
+  remove: (object, key) ->
+    accessors     = @parse key
+    child         = accessors.pop()
+    parent        = getValueFromAccessors object, accessors
+    if parent instanceof Array and isNumeric child
+      parent[child..child] = []
+    else
+      delete parent[child]
+
   getValueFromAccessors = (object, accessors) ->
     for accessor in accessors
       object = object[accessor]
@@ -44,3 +53,6 @@ module.exports = class ObjectAccessor
     return toAppend unless object?
     if object instanceof Array then object.push toAppend else object += toAppend
     object
+
+  isNumeric = (string) ->
+    not isNaN(string) and isFinite string
