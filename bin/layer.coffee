@@ -1,5 +1,7 @@
 #! /usr/bin/env coffee
 
+require('../src/utils/validation').ensureCanExecute()
+
 program = require 'yargs'
 
 subcommand = (name, description) ->
