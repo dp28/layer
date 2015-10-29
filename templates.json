@@ -14,5 +14,9 @@
   "notifications": {
     "jade": "[LAYER_HOME]templates/notifications/template.jade",
     "data": "[LAYER_HOME]templates/notifications/data.json"
+  },
+  "todo": {
+    "jade": "[LAYER_HOME]templates/todo/template.jade",
+    "data": "[LAYER_HOME]templates/todo/data.json"
   }
 }
