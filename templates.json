@@ -3,6 +3,10 @@
     "jade": "[LAYER_HOME]templates/clear/template.jade",
     "data": "[LAYER_HOME]templates/clear/data.json"
   },
+  "flash": {
+    "jade": "[LAYER_HOME]templates/flash/template.jade",
+    "data": "[LAYER_HOME]templates/flash/data.json"
+  },
   "layer-cheatsheet": {
     "jade": "[LAYER_HOME]templates/cheatsheet/template.jade",
     "data": "[LAYER_HOME]templates/cheatsheet/data.json"
