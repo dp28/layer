@@ -128,6 +128,10 @@ remove the files themselves.
 
 Shows the stored default settings for layer, or updates them if a setting name
 and value are passed.
+#### completion
+Prints a bash completion script to enable tab completion of layer commands and 
+options. By default, this is appended to ~/.bashrc when layer is installed so
+that completions are automatically available.
 
 ## License
 
