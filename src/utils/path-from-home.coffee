@@ -1,9 +1,6 @@
-path = require 'path'
+path       = require 'path'
+expandHome = require 'expand-home-dir'
 
-HOME = path.join __dirname, '../../'
+HOME = expandHome '~/.layer'
 
-module.exports =
-  pathFromHome: -> path.join HOME, arguments...
-
-  pathResolvingHome: (pathName) ->
-    pathName.replace '[LAYER_HOME]', HOME
+module.exports = -> path.join HOME, arguments...

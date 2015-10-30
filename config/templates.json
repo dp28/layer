@@ -1,0 +1,22 @@
+{
+  "clear": {
+    "jade": "~/.layer/examples/clear/template.jade",
+    "data": "~/.layer/examples/clear/data.json"
+  },
+  "flash": {
+    "jade": "~/.layer/examples/flash/template.jade",
+    "data": "~/.layer/examples/flash/data.json"
+  },
+  "layer-cheatsheet": {
+    "jade": "~/.layer/examples/cheatsheet/template.jade",
+    "data": "~/.layer/examples/cheatsheet/data.json"
+  },
+  "notifications": {
+    "jade": "~/.layer/examples/notifications/template.jade",
+    "data": "~/.layer/examples/notifications/data.json"
+  },
+  "todo": {
+    "jade": "~/.layer/examples/todo/template.jade",
+    "data": "~/.layer/examples/todo/data.json"
+  }
+}

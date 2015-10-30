@@ -14,7 +14,7 @@
     "layer-completion": "bin/layer-completion.sh"
   },
   "scripts": {
-    "postinstall": "cat completion.sh >> ~/.bashrc"
+    "postinstall": "cat config/completion.sh >> ~/.bashrc"
   },
   "repository": {
     "type": "git",
@@ -29,10 +29,11 @@
     "bluebird": "~2.10.2",
     "chalk": "^1.1.1",
     "coffee-script": "~1.10.0",
-    "expand-tilde": "^1.2.0",
+    "expand-home-dir": "0.0.2",
     "jade": "~1.11.0",
     "path": "~0.12.7",
     "phantom": "0.8.0",
+    "shelljs": "^0.5.3",
     "spawn-sync": "~1.0.13",
     "yargs": "~3.27.0"
   }

@@ -29,7 +29,7 @@
     "describe": "The gnome terminal profile to set the background for"
   },
   "image-file": {
-    "default": null,
+    "default": "~/.layer/background.png",
     "describe": "Where to save the background image"
   }
 }

@@ -1,6 +1,5 @@
-Promise = require 'bluebird'
-
-nodePhantom = require('phantom')
+Promise     = require 'bluebird'
+nodePhantom = require 'phantom'
 
 module.exports = class Renderer
 

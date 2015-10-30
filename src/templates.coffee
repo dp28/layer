@@ -1,8 +1,10 @@
-fs       = require 'fs'
-jade     = require 'jade'
-path     = require './utils/path-from-home'
-jsonFile = require './utils/json-file'
-error    = require('./utils/validation').error
+fs         = require 'fs'
+jade       = require 'jade'
+expandHome = require 'expand-home-dir'
+
+pathFromHome = require './utils/path-from-home'
+jsonFile     = require './utils/json-file'
+error        = require('./utils/validation').error
 
 module.exports =
   getCompiled: ->
@@ -32,13 +34,13 @@ module.exports =
   resolveTemplate: ->
     resolveTemplate arguments...
 
-TEMPLATES_FILE = path.pathFromHome 'templates.json'
+TEMPLATES_FILE = pathFromHome 'templates.json'
 templates      = jsonFile.read TEMPLATES_FILE
 
 resolveTemplate = (name, jade = null, data = null) ->
   template = findTemplate name
-  jade: jade ? path.pathResolvingHome template.jade
-  data: data ? path.pathResolvingHome template.data
+  jade: expandHome jade ? template.jade
+  data: expandHome data ? template.data
 
 compile = (template) ->
   compileHtml = jade.compileFile template.jade

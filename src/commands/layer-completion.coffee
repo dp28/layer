@@ -1,4 +1,6 @@
-path = require('../utils/path-from-home').pathFromHome
+pathFromHome = require '../utils/path-from-home'
 
-require('fs').readFile path('./completion.sh'), 'utf-8', (error, data) ->
+COMPLETION_FILE = pathFromHome 'config/completion.sh'
+
+require('fs').readFile COMPLETION_FILE, 'utf-8', (error, data) ->
   console.log data
