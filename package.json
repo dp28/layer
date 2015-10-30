@@ -1,6 +1,6 @@
 {
   "name": "layer-terminal",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "A command-line tool to change the GNOME terminal background from Jade templates and JSON data.",
   "author": "Daniel Patterson <dan24patt@gmail.com",
   "license": "MIT",
