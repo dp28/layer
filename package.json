@@ -10,7 +10,11 @@
     "linux"
   ],
   "bin": {
-    "layer": "bin/layer.coffee"
+    "layer": "bin/layer.coffee",
+    "layer-completion": "bin/layer-completion.sh"
+  },
+  "scripts": {
+    "postinstall": "layer completion >> ~/.bashrc && . <(layer completion)"
   },
   "repository": {
     "type": "git",
