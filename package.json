@@ -14,7 +14,7 @@
     "layer-completion": "bin/layer-completion.sh"
   },
   "scripts": {
-    "postinstall": "bin/layer.coffee completion >> ~/.bashrc"
+    "postinstall": "cat completion.sh >> ~/.bashrc"
   },
   "repository": {
     "type": "git",
