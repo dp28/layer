@@ -48,6 +48,10 @@ Using npm:
 ```
 npm install -g layer-terminal
 ```
+If you don't have phantomjs installed, this is also required:
+```
+sudo apt-get install phantomjs
+```
 
 ## Usage
 `layer <command> [options]`

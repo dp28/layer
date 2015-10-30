@@ -11,6 +11,7 @@ module.exports =
       (arg) -> "'--#{arg}' is required"
 
   ensureCanExecute: ->
+    requireTerminalCommand 'phantomjs'
     requireTerminalCommand 'resize'
     requireTerminalCommand 'gconftool-2'
 
