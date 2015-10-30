@@ -21,7 +21,10 @@ buildArgs = (args, options) ->
   addOptions args, options
 
 addOptions = (args, only) ->
-  for option, params of config.raw when only.length is 0 or option in only
+  for option, values of config.raw when only.length is 0 or option in only
+    params = {}
+    params[key] = value for key, value of values
+
     if typeof params.default is 'boolean'
       params.default = undefined
       params.type = 'boolean'

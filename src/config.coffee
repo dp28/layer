@@ -5,18 +5,13 @@ jsonFile     = require './utils/json-file'
 
 class Config
 
-  CONFIG_FILE   = pathFromHome 'config.json'
+  CONFIG_FILE = pathFromHome 'config.json'
 
   constructor: ->
     @raw = jsonFile.read CONFIG_FILE
 
   save: ->
     jsonFile.write CONFIG_FILE, @raw
-
-  buildOptions = (config) ->
-    options = {}
-    options[camelize key] = value.default for key, value of config
-    options
 
 config = new Config
 module.exports = config
