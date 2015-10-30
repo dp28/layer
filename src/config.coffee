@@ -1,3 +1,6 @@
+path         = require 'path'
+expandTilde  = require 'expand-tilde'
+
 pathFromHome = require('./utils/path-from-home').pathFromHome
 jsonFile     = require './utils/json-file'
 
@@ -6,7 +9,7 @@ jsonFile     = require './utils/json-file'
 class Config
 
   CONFIG_FILE   = pathFromHome 'config.json'
-  DEFAULT_IMAGE = pathFromHome 'output/background.png'
+  DEFAULT_IMAGE = path.join expandTilde('~'), '.layer-background.png'
 
   constructor: ->
     @raw = jsonFile.read CONFIG_FILE

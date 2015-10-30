@@ -1,15 +1,16 @@
-fs       = require 'fs'
-Promise  = require 'bluebird'
+fs           = require 'fs'
+Promise      = require 'bluebird'
+path         = require 'path'
+expandTilde  = require 'expand-tilde'
 
 Renderer     = require './renderer'
 Terminal     = require './terminal'
 jsonFile     = require './utils/json-file'
-pathFromHome = require('./utils/path-from-home').pathFromHome
 getTemplate  = require('../src/templates').getCompiled
 
 module.exports = class Layer
 
-  TEMP_IMAGE = pathFromHome '/output/temp.png'
+  TEMP_IMAGE = path.join expandTilde('~'), '.layer-temp.png'
 
   constructor: (@config) ->
     @terminal = new Terminal @config
