@@ -4,7 +4,7 @@ HELP_OPTIONS="-h --help"
 TEMPLATE_OPTIONS="$HELP_OPTIONS -t --template"
 READ_OPTIONS="$TEMPLATE_OPTIONS -k --key"
 WRITE_OPTIONS="$READ_OPTIONS -v --value"
-NEW_OPTIONS="$TEMPLATE_OPTIONS -d --template-data -j --template-jade"
+NEW_OPTIONS="$TEMPLATE_OPTIONS"
 RENDER_OPTIONS="$NEW_OPTIONS --row-height --column-width --profile --image-file"
 
 complete_keys() {

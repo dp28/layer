@@ -21,7 +21,9 @@ buildArgs = (args, options) ->
   addOptions args, options
 
 addOptions = (args, only) ->
+  argv = args.argv
   for option, values of config.raw when only.length is 0 or option in only
+    continue if argv[option]?
     params = {}
     params[key] = value for key, value of values
 
@@ -37,10 +39,3 @@ addOptions = (args, only) ->
       option       = shortOption
 
     args.option option, params
-
-  addTemplateDefaults args, only
-
-addTemplateDefaults = (args, only) ->
-  template = templates.resolveTemplate config.raw.template.default
-  for arg in ['data', 'jade'] when only.length is 0 or "template-#{arg}" in only
-    args.default "template-#{arg}", template[arg]

@@ -4,15 +4,23 @@ args       = require '../args'
 templates  = require '../templates'
 validation = require '../utils/validation'
 
-templateArgs = ['template', 'template-jade', 'template-data']
-
 args
-  .withDefaultOptions templateArgs...
+  .withDefaultOptions 'template'
   .describe 'template', 'The name of the new template to save'
-  .describe 'template-data', 'The json file to store data in'
-  .describe 'template-jade', 'The jade file to use for this template'
 
-args.default arg, undefined for arg in templateArgs
+  .option 'd',
+    alias:       'template-data'
+    requiresArg: true
+    describe:    'The json file to store data in'
+    type:        'string'
+
+  .option 'j',
+    alias:       'template-jade'
+    requiresArg: true
+    describe:    'The jade file to use for this template'
+    type:        'string'
+
+args.default 't', undefined
 
 argv = args.argv
 
@@ -23,7 +31,7 @@ fileExists = (filePath) ->
   catch e
     false
 
-validation.ensureAllFound templateArgs, argv
+validation.ensureAllFound ['template', 'template-data', 'template-jade'], argv
 args = args.camelize()
 
 jade = path.resolve args.templateJade

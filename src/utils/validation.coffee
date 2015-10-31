@@ -7,7 +7,7 @@ pathFromHome = require './path-from-home'
 
 module.exports =
   ensureAll: -> ensureAll arguments...
-  error:     error
+  error:     -> error arguments...
 
   ensureAllFound: (toFind, source) ->
     ensureAll toFind,

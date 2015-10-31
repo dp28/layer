@@ -2,13 +2,9 @@ args      = require '../args'
 templates = require '../templates'
 
 args
-  .withDefaultOptions 'template', 'template-jade', 'template-data'
+  .withDefaultOptions 'template'
   .describe 'template', 'The saved template to show'
-  .describe 'template-data', 'The jade template to show'
-  .describe 'template-jade', 'The saved template data to show'
-
-args.default arg, undefined for arg in ['template-jade', 'template-data']
 
 args = args.camelize()
 
-templates.show args.template, args.templateJade, args.templateData
+templates.show args.template

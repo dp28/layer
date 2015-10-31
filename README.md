@@ -57,14 +57,14 @@ sudo apt-get install phantomjs
 `layer <command> [options]`
 ### Commands
 #### new
-**Arguments:** `-t`/`--template`, `-d`/`--template-data`, `-j`/`--template-jade`
+**Arguments:** `-t`/`--template`
 
 Stores a named reference to the Jade and JSON files specifed. The created
 template reference can be set as the default template using the **config**
 command.
 
 #### render
-**Arguments:** `-t`/`--template`, `-d`/`--template-data`, `-j`/`--template-jade`,
+**Arguments:** `-t`/`--template`
 `--profile`, `--allow-scroll`, `--image-file`, `--column-width`, `--row-height`
 
 Render a template to the terminal background. The exact Jade and JSON files can
