@@ -28,8 +28,8 @@ module.exports =
     delete templates[name]
     save()
 
-  list: ->
-    console.log name for name of templates
+  all_names: ->
+    (name for name of templates)
 
   resolveTemplate: ->
     resolveTemplate arguments...
