@@ -52,6 +52,10 @@ If you don't have phantomjs installed, this is also required:
 ```
 sudo apt-get install phantomjs
 ```
+To enable tab completion, then do:
+```
+layer completion >> ~/.bashrc
+```
 
 ## Usage
 `layer <command> [options]`
@@ -130,7 +134,7 @@ Shows the stored default settings for layer, or updates them if a setting name
 and value are passed.
 #### completion
 Prints a bash completion script to enable tab completion of layer commands and 
-options. By default, this is appended to ~/.bashrc when layer is installed so
+options. Append this to ~/.bashrc when layer is installed so
 that completions are automatically available.
 
 ## License
