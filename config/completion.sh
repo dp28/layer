@@ -1,3 +1,4 @@
+
 # Enables tab completion of layer-terminal commands and options
 _layer_completions()
 {

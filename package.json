@@ -14,7 +14,7 @@
     "layer-completion": "bin/layer-completion.sh"
   },
   "scripts": {
-    "postinstall": "cat config/completion.sh >> ~/.bashrc || true"
+    "postinstall": "grep -q _layer_completions ~/.bashrc || cat config/completion.sh >> ~/.bashrc || true"
   },
   "repository": {
     "type": "git",
